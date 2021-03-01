@@ -1,8 +1,8 @@
-name: RSS
+name: "bmx.json"
 on:
-  schedule:
-    - cron: "0 17 * * *"
   push:
+  schedule:
+    - cron: "0 20 * * *"
 
 jobs:
   generate_rss:
@@ -15,12 +15,14 @@ jobs:
         id: rss
         uses: ./
         with:
-          yourInstagram: katydecorah
-          listOfInstagrams: nytcooking,sohlae,swissmiss,soulfirefarm
+          yourInstagram: jsnmrs
+          listOfInstagrams: crandallfbm,mark_burnett,bmx,radshare,drop_in_coffee,snakebitebmx,digbmx,jasonenns,tateroskelley,tajlucas,northeastbadboys,lookbackbmx,t1stagram,thejakeseeley,bmxdmc
+          fileName: bmx.json
+          feedTitle: BMX
       - name: Commit files
         if: ${{ success() && steps.rss.outputs.RSS_STATUS == 'success' }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add -A && git commit -m "Updated instagram.json"
+          git add -A && git commit -m "Updated bmx.json"
           git push "https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/${GITHUB_REPOSITORY}.git" HEAD:${GITHUB_REF}

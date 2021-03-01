@@ -17,6 +17,8 @@ async function feed() {
     };
     const client = new Instagram({ username });
 
+    core.log(`Fetching posts for ${handles}`);
+
     let allPosts = [];
     for (const handle of handles) {
       try {

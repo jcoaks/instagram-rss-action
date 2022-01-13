@@ -42315,6 +42315,7 @@ function removeHashTags(str) {
     )
     .join(" ");
 }
+
 ;// CONCATENATED MODULE: ./src/utils.js
 
 
@@ -42414,6 +42415,7 @@ function formatFeed(feed, handle, pretty) {
     };
   });
 }
+
 ;// CONCATENATED MODULE: ./src/index.js
 
 

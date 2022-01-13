@@ -1,6 +1,6 @@
-const { readFileSync, writeFileSync } = require("fs");
-const { version } = require("../package.json");
-const yaml = require("js-yaml");
+import { readFileSync, writeFileSync } from "fs";
+import { load } from "js-yaml";
+const { version } = JSON.parse(readFileSync("./package.json", "utf-8"));
 
 function writeDocs(doc, name) {
   const readme = readFileSync("./README.md", "utf-8");
@@ -37,7 +37,7 @@ ${yml
 );
 
 // INPUT
-const { inputs } = yaml.load(readFileSync("./action.yml", "utf8"));
+const { inputs } = load(readFileSync("./action.yml", "utf8"));
 const docs = Object.keys(inputs)
   .map(
     (key) =>

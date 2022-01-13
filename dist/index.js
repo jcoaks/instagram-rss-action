@@ -42385,7 +42385,7 @@ function utils_image({ display_url, edge_sidecar_to_children }) {
 }
 
 function formatFeed(feed, handle, pretty) {
-  if (!feed.user) {
+  if (!('user' in feed)) {
     (0,core.warning)(
       `Failed to fetch Instagram feed for ${handle}. The username is incorrect or the Instagram API has ratelimited this request.`
     );

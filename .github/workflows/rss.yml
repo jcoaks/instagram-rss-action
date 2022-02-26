@@ -1,7 +1,7 @@
 name: RSS
 on:
   schedule:
-    - cron: "0 17 * * *"
+    - cron: "0 10 * * *"
   push:
 
 jobs:
@@ -15,8 +15,8 @@ jobs:
         id: rss
         uses: ./
         with:
-          yourInstagram: instagram_handle
-          listOfInstagrams: nytcooking,sohlae,swissmiss,soulfirefarm
+          yourInstagram: jcoaks.backup
+          listOfInstagrams: juntosxtachira
       - name: Commit files
         if: ${{ success() && steps.rss.outputs.RSS_STATUS == 'success' }}
         run: |
